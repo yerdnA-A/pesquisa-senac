@@ -73,8 +73,25 @@ def enviar():
         data.get('reutiliza'),
         data.get('simbolos'),
         data.get('dominio'),
-        ip_usuario 
+        ip_usuario
     ])
+
+    dados_google = {
+        'nome': data.get('nome'),
+        'idade': data.get('idade'),
+        'funcao': data.get('funcao'),
+        'computador': data.get('computador'),
+        'celular': data.get('celular'),
+        'antivirus': data.get('antivirus'),
+        'scan': data.get('scan'),
+        'atualiza': data.get('atualiza'),
+        'reutiliza': data.get('reutiliza'),
+        'simbolos': data.get('simbolos'),
+        'dominio': data.get('dominio'),
+        'ip_usuario': ip_usuario
+    }
+    adicionar_resposta(dados_google)
+
 
     wb.save(EXCEL_FILE)
     return redirect(url_for('obrigado'))
@@ -89,7 +106,7 @@ def index():
 
 def adicionar_resposta(dados):
     sheet = acessar_planilha()
-    SPREADSHEET_ID = 'https://docs.google.com/spreadsheets/d/14QdRiGB4a_ebYA0casBXxu2hSNAb_xUHe2ZmVA91nuY/edit?gid=0#gid=0'  # Substitua pela ID da sua planilha
+    SPREADSHEET_ID = '14QdRiGB4a_ebYA0casBXxu2hSNAb_xUHe2ZmVA91nuY'  # Substitua pela ID da sua planilha
     RANGE_NAME = 'Respostas!A1'
     valores = [
         [
