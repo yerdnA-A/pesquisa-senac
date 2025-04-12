@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questionário de Segurança Digital</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Questionário de Segurança Digital</h1>
+    <form action="/enviar" method="POST">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="idade">Idade:</label>
+      <input type="number" id="idade" name="idade" required>
+
+      <label for="funcao">Curso / Função (se funcionário):</label>
+      <input type="text" id="funcao" name="funcao">
+
+      <label>Possui computador em casa?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="computador" value="Sim"> Sim</label>
+        <label><input type="radio" name="computador" value="Não"> Não</label>
+      </div>
+
+      <label>Possui celular?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="celular" value="Sim"> Sim</label>
+        <label><input type="radio" name="celular" value="Não"> Não</label>
+      </div>
+
+      <label>Seu PC/Celular possui antivírus?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="antivirus" value="Sim"> Sim</label>
+        <label><input type="radio" name="antivirus" value="Não"> Não</label>
+      </div>
+
+      <label>Realiza escaneamento de antivírus frequentemente?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="scan" value="Sempre"> Sempre</label>
+        <label><input type="radio" name="scan" value="De vez em quando"> De vez em quando</label>
+        <label><input type="radio" name="scan" value="Nunca"> Nunca</label>
+      </div>
+
+      <label>Você realiza as atualizações de seu sistema Windows, iOS, Android?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="atualiza" value="Sempre"> Sempre</label>
+        <label><input type="radio" name="atualiza" value="De vez em quando"> De vez em quando</label>
+        <label><input type="radio" name="atualiza" value="Nunca"> Nunca</label>
+      </div>
+
+      <label>Costuma reutilizar as mesmas senhas em vários sites?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="reutiliza" value="Sim"> Sim</label>
+        <label><input type="radio" name="reutiliza" value="Não"> Não</label>
+      </div>
+
+      <label>Utiliza números e símbolos em suas senhas?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="simbolos" value="Sim"> Sim</label>
+        <label><input type="radio" name="simbolos" value="Não"> Não</label>
+      </div>
+
+      <label>Você verifica o domínio do e-mail para saber se condiz com o site de sua confiança?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dominio" value="Sim"> Sim</label>
+        <label><input type="radio" name="dominio" value="Não"> Não</label>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
