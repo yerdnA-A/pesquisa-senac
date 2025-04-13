@@ -11,6 +11,15 @@
     <h1>Obrigado por responder!</h1>
     <p>Suas informações foram registradas com sucesso.</p>
     <a href="/">Voltar ao formulário</a>
+
+    <hr>
+
+    <h3>Área restrita</h3>
+    <form action="{{ url_for('respostas') }}" method="get">
+      <label for="senha">Digite a senha para ver as respostas:</label><br>
+      <input type="password" name="senha" id="senha" required>
+      <button type="submit">Ver respostas</button>
+    </form>
   </div>
 </body>
 </html>
