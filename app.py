@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for, render_template
+from flask import Flask, request, redirect, url_for, render_template, Response
 import pandas as pd
 import os
 from datetime import datetime  # <-- Adicionado
@@ -50,6 +50,20 @@ def enviar():
 @app.route('/obrigado')
 def obrigado():
     return render_template('obrigado.html')
+
+ADMIN_PASSWORD = "Senac123"  
+
+@app.route('/respostas')
+def respostas():
+    senha = request.args.get('senha')
+    if senha != ADMIN_PASSWORD:
+        return Response("Acesso negado. Informe a senha na URL: /respostas?senha=suasenha", status=401)
+    
+    if os.path.exists(EXCEL_FILE):
+        df = pd.read_excel(EXCEL_FILE)
+        return render_template('respostas.html', tabeladf=df.to_html(classes='tabela', index=False))
+    else:
+        return "Nenhuma resposta registrada ainda."
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
